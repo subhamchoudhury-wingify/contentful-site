@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  experimental: {
+    agentUpgrade: "security",
+  },
   images: {
     remotePatterns: [new URL("https://images.ctfassets.net/**")],
   },
