@@ -4,15 +4,18 @@
   "private": true,
   "scripts": {
     "setup": "node --env-file=.env.local scripts/setup-contentful.mjs",
+    "setup:hero-ab": "node --env-file=.env.local scripts/setup-hero-ab.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "contentful": "^11.12.10",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "vwo-fme-node-sdk": "^1.85.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
