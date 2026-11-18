@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Sections } from "@/components/sections";
+import { ResolvedSections } from "@/components/resolved-sections";
 import { SetupNotice } from "@/components/setup-notice";
 import { getPage, isContentfulConfigured } from "@/lib/contentful";
 
@@ -19,7 +19,7 @@ export default async function HomePage() {
 
   return (
     <main className="flex-1">
-      <Sections sections={page.sections} />
+      <ResolvedSections sections={page.sections} />
     </main>
   );
 }

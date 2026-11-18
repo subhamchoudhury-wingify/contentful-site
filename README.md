@@ -40,6 +40,18 @@ Content is cached for about a minute. After publishing in Contentful, refresh th
 a minute to see the change. Set `CONTENTFUL_PREVIEW=true` in `.env.local` to show draft
 (unpublished) content locally.
 
+## Wingify Feature Management (Hero A/B)
+
+This site supports the [Contentful × Wingify FME integration](https://help.wingify.com/hc/en-us/articles/59040838842649-Integrate-Wingify-Feature-Management-with-Contentful-CMS)
+for **pre–June 14** accounts (`vwo-fme-node-sdk`, variable `vwoContentful`).
+
+1. Run `npm run setup:hero-ab` once (allows the VWO FME Wrapper on pages + creates Hero B).
+2. In Contentful, replace the Home page Hero section with a **VWO FME Wrapper**, set Control = Home Hero, Variation = Home Hero B, and publish.
+3. In Wingify, enable an A/B rule on the synced flag (use the **Dev** SDK key locally).
+4. Env vars: `VWO_ACCOUNT_ID` / `WINGIFY_ACCOUNT_ID` and `VWO_SDK_KEY` / `sdkKey`.
+
+A visitor cookie (`vwo_visitor_id`) is set by `src/proxy.ts`. Flagged sections resolve at request time in `src/components/resolved-sections.tsx`.
+
 ## Code layout
 
 - `scripts/setup-contentful.mjs` – creates the content model and sample content

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { Sections } from "@/components/sections";
+import { ResolvedSections } from "@/components/resolved-sections";
 import { getPage, getPageSlugs } from "@/lib/contentful";
 
 export async function generateStaticParams() {
@@ -31,5 +31,5 @@ async function PageContent({ params }: Pick<PageProps<"/[slug]">, "params">) {
   const page = await getPage(slug);
   if (!page) notFound();
 
-  return <Sections sections={page.sections} />;
+  return <ResolvedSections sections={page.sections} />;
 }
